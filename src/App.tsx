@@ -31,15 +31,15 @@ const App = () => {
   return (
     <div className="min-h-screen h-full bg-slate-200">
       <div className="container mx-auto py-4">
-        <div className="flex flex-row gap-2 mb-4">
+        <div className="flex flex-row gap-8 mb-4">
           <input
             type="text"
-            className="w-60 border border-stone-900 appearance-none outline-none text-xl rounded-lg px-2"
+            className="w-96 border border-stone-900 appearance-none outline-none text-xl rounded-lg px-4 py-2"
             value={newTaskName}
             onChange={(e) => setNewTaskName(e.currentTarget.value)}
           />
           <button
-            className="bg-green-300 cursor-pointer px-4 rounded-lg"
+            className="bg-blue-600 hover:bg-blue-500 cursor-pointer px-6 rounded-lg text-white"
             onClick={handleAddTask}
           >
             Add Task
