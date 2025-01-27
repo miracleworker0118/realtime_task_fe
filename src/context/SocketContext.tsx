@@ -21,18 +21,22 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     const newSocket = io(import.meta.env.VITE_API_URL);
     setSocket(newSocket);
 
+    //Listen for init event to initialize tasks
     newSocket.on("init", (tasks) => {
       dispatch(setTasks(tasks));
     });
 
+    //Listen for update event to update tasks
     newSocket.on("addTask", (task) => {
       dispatch(addTask(task));
     });
 
+    //Listen for completeTask event to update task status
     newSocket.on("completeTask", ({ id, status }) => {
       dispatch(completeTask({ id, status }));
     });
 
+    //Listen for deleteTask event to remove task
     newSocket.on("deleteTask", (id: string) => {
       dispatch(removeTask(id));
     });

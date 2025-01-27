@@ -23,12 +23,15 @@ export const taskSlice = createSlice({
     setTasks: (state, action: PayloadAction<TaskItem[]>) => {
       state.tasks = action.payload;
     },
+    //Add new task to tasks state
     addTask: (state, action: PayloadAction<TaskItem>) => {
       state.tasks.push(action.payload);
     },
+    //Remove task from tasks state by id
     removeTask: (state, action: PayloadAction<string>) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
+    //Update task status by id
     completeTask: (
       state,
       action: PayloadAction<{ id: string; status: boolean }>
